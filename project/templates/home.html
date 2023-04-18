@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Welcome to Real Estate Market!</h1>
+<form action="/search">
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city"><br><br>
+    <label for="state">State:</label>
+    <input type="text" id="state" name="state"><br><br>
+    <input type="submit" value="Search">
+</form>
+{% endblock %}

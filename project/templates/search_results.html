@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Real Estate Market Results</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/search_results.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Real Estate Market Results for {{ search_query }}</h1>
+      <button class="home-button" onclick="window.location.href='/';">Back to Search</button>
+    </div>
+    {% if search_results %}
+    <div class="result">
+      {% for result in search_results %}
+      <div class="property-card">
+        <img src="{{ result.imgSrc }}" alt="{{ result.streetAddress }}">
+        <div class="property-details">
+          <h2>{{ result.streetAddress }}</h2>
+          <p>{{ result.bedrooms }} bedrooms | {{ result.bathrooms }} bathrooms | living area: {{ result.livingArea }} sqft</p>
+          <p>{{ result.homeType }}</p>
+          <p class="property-price">${{ result.price }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p>No results found.</p>
+    {% endif %}
+
+
